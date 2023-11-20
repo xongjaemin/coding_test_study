@@ -1,55 +1,47 @@
 function solution(users, emoticons) {
-    const discounted = [];
-    let joinCount = 0;
-    let purchased = 0;
-    const discountRates = [10,20,30,40];
-
-    function getAllCases(arr, length) {
-        const cases = [];
-
-        function recursiveFunc(currentCase) {
-            if (currentCase.length === length) {
-                cases.push(currentCase);
-                return;
-            }
-
-            for (let i = 0; i < arr.length; i++) {
-                recursiveFunc([...currentCase, arr[i]]);
-            }
+    const answer = [0, 0];
+    const discount = [10, 20, 30, 40];
+    const arr = [];
+    function dfs(emoticons, result) {
+        if (emoticons.length < 1) {
+            arr.push(result);
+            return;
         }
-
-        recursiveFunc([]);
-
-        return cases;
+        for (let i=0; i<discount.length; i++) {
+            dfs(emoticons.slice(1), [...result, [discount[i], emoticons[0]]]);
+        }
     }
 
-    const arr2 = getAllCases(discountRates, emoticons.length);
-    const arr3 = arr2.map((e) => {
-        return e.map((e1,i1)=>[e1,emoticons[i1] * 0.01 * (100 - e1)])
-    })
+    dfs(emoticons, []);
+    const disAmt = (dis, price) => (100-dis) / 100 * price;
 
-    for(let i=0;i<arr3.length;i++){
+    arr.forEach(disArr => {
+        const accrue = [0, 0]
+        users.forEach(([per, price]) => {
+            let sum = 0;
 
-        let caseJoinCount = 0;
-        let casePurchased = 0;
-        for(let j=0;j<users.length;j++){
-            let thisTimePruchased = 0;
-            for(let h=0;h<arr3[0].length;h++){
-                if(users[j][0] <= arr3[i][h][0]){
-                    thisTimePruchased += arr3[i][h][1]
+            disArr.forEach(([dis, cost]) => {
+                if(dis >= per) {
+                    sum += disAmt(dis, cost);
                 }
-            }
-            if(thisTimePruchased >= users[j][1]){
-                caseJoinCount++
+            });
+            if(sum >= price) {
+                accrue[0] += 1;
             } else {
-                casePurchased += thisTimePruchased
+                accrue[1] += sum;
+            }
+        });
+        if(answer[0] < accrue[0]) {
+            answer[0] = accrue[0];
+            answer[1] = accrue[1];
+        } else if(answer[0] === accrue[0]) {
+            if(answer[1] < accrue[1]) {
+                answer[1] = accrue[1];
             }
         }
-        if(caseJoinCount > joinCount || (caseJoinCount === joinCount && casePurchased > purchased)) {
-            joinCount = caseJoinCount
-            purchased = casePurchased
-        }
-    }
-
-    return [joinCount,purchased]
+    });
+    return answer;
 }
+
+console.log(solution([[40, 10000], [25, 10000]], [7000, 9000])) // should return [1, 5400]
+console.log(solution([[40, 2900], [23, 10000], [11, 5200], [5, 5900], [40, 3100], [27, 9200], [32, 6900]], [1300, 1500, 1600, 4900])) // should return [4, 13860]
