@@ -9,7 +9,8 @@ function solution(maps) {
     queue.push([0, 0, 1]);
     visited[0][0] = true;
 
-    while(queue.length){
+    while(queue.length){// shift를 통해서 queue에서 가장 dist가 작은 값을 계속 가져와서 동서남북을 확인하기 때문에 결국엔 최단거리로 도달한다.
+
         const [x, y, dist] = queue.shift();
         if(x == rows - 1 && y == cols -1) return dist;
 
