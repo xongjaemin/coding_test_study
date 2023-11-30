@@ -37,7 +37,7 @@ rl.on('line', function (line) {
 });
 
 /*
-4
+4기
 2 3
 1 0 0 1
 1 1 1 1
