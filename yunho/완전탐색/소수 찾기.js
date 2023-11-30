@@ -16,6 +16,7 @@ function solution(numbers) {
             for(let i = 0; i <arr.length; i++) {
                 let copy = [...arr];
                 copy.splice(i,1);
+                console.log(str);
                 numOfCase(copy,str + arr[i])
             }
         }
@@ -24,3 +25,4 @@ function solution(numbers) {
     return set.size;
 }
 
+console.log(solution("12345"))

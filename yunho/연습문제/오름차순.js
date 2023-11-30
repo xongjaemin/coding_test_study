@@ -6,3 +6,7 @@ arr2.sort((a,b) => a-b);
 
 console.log(arr);
 console.log(arr2);
+const stringA = 'abc';
+const stringB = 'def';
+
+console.log(stringA.localeCompare(stringB));
