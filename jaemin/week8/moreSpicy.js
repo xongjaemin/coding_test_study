@@ -5,14 +5,14 @@ function pushMinHeap(heap, value) {
 
   while (
     currentIndex > 0 &&
-    heap[currentIndex] < heap[(currentIndex - 1) / 2]
+    heap[currentIndex] < heap[Math.floor((currentIndex - 1) / 2)]
   ) {
     //currentIndex 값이 부모보다 작으면 swap
-    [heap[currentIndex], heap[(currentIndex - 1) / 2]] = [
-      heap[(currentIndex - 1) / 2],
+    [heap[currentIndex], heap[Math.floor((currentIndex - 1) / 2)]] = [
+      heap[Math.floor((currentIndex - 1) / 2)],
       heap[currentIndex],
     ];
-    currentIndex = (currentIndex - 1) / 2;
+    currentIndex = Math.floor((currentIndex - 1) / 2);
   }
 }
 
