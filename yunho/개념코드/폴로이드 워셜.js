@@ -1,5 +1,5 @@
 // 참조 https://velog.io/@wkahd01/폴로이드-워셜-알고리즘-with-JS
-function floid(chart){
+function floyd(chart){
     for (let mid = 0; mid < chart.length; mid++) {
         for (let start = 0; start < chart.length; start++) {
             for (let end = 0; end < chart.length; end++) {
@@ -16,4 +16,4 @@ const chart = [
     [2, 1, Infinity, 0, Infinity],
     [Infinity, 8, 5, Infinity, 0]
 ]
-console.log(floid(chart));
+console.log(floyd(chart));
