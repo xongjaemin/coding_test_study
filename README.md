@@ -8,4 +8,4 @@
 4. 각자 브랜치 파서 각자 이름으로 된 폴더에 작업 후 메인으로 풀리퀘!
 
 ### 스터디 노션
-<a href="https://www.notion.so/kimyunho/e6160595189b4e1ba9824ef7accf96f3">📚 [Link]</a>
+<a href="https://kimyunho.notion.site/e6160595189b4e1ba9824ef7accf96f3">📚 [Link]</a>
