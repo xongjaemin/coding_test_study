@@ -1,4 +1,4 @@
-//pccp 모의고사 3번
+//pccp 기출문제 3번 아날로그 시계
 
 const timeToSecond = (h, m, s) => {
   //시간을 초 단위로 변환

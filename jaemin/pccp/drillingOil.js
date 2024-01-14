@@ -1,4 +1,4 @@
-//pccp 모의고사 2번
+//pccp 기출문제 2번 석유 시추
 function solution(land) {
   let queue = [[0, 0]]; //bfs 큐 (y, x)
   const dx = [-1, 1, 0, 0]; //좌우 이동

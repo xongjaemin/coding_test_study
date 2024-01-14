@@ -1,4 +1,4 @@
-//pccp 모의고사 1번
+//pccp 기출문제 1번 붕대감기
 function solution(bandage, health, attacks) {
   //bandage (시전 시간, 1초 당 회복량, 추가 회복량)
   const time = attacks[attacks.length - 1][0];
