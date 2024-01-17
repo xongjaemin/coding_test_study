@@ -5,7 +5,7 @@ function solution(land) {
   const dy = [0, 0, -1, 1]; //상하 이동
   const n = land.length; //y 길이
   const m = land[0].length; //x 길이
-  let oilMap = new Map(); //{석유덩어리의 석유량 : 석유덩어리를 얻을 수 있는 열의 index들}
+  let oilMap = new Map(); //{열 idx : 얻을 수 있는 석유량}
 
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
@@ -47,6 +47,8 @@ function solution(land) {
       }
     }
   }
+
+  console.log(oilMap);
 
   const answer = Math.max(...oilMap.values());
   console.log(answer);
