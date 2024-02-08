@@ -29,6 +29,7 @@ function solution(name) {
 
     //우로 쭉 가는 것과, 좌로 반대로 돌아서 가는 것 중 조작횟수가 적은 경우 찾기
     horizontalNum = Math.min(horizontalNum, 2 * i + (name.length - next));
+    //BBBBAAAB와 같이 처음부터 반대로 돌아가는 것이 빠른 경우 고려
     horizontalNum = Math.min(horizontalNum, 2 * (name.length - next) + i);
   }
   answer += horizontalNum;
