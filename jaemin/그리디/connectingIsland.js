@@ -61,3 +61,58 @@ const init = () => {
 };
 
 init();
+
+// //다시 풀어보기
+// //부모 노드 찾기
+// const getParent = (parent, x) => {
+//   if (parent[x] === x) return x;
+//   return getParent(parent, parent[x]);
+// };
+
+// const union = (parent, a, b) => {
+//   a = getParent(parent, a);
+//   b = getParent(parent, b);
+//   if (a > b) {
+//     parent[a] = b;
+//   } else {
+//     parent[b] = a;
+//   }
+// };
+
+// const isUnion = (parent, a, b) => {
+//   const x = getParent(parent, a);
+//   const y = getParent(parent, b);
+
+//   return x === y ? true : false;
+// };
+
+// function solution(n, costs) {
+//   var answer = 0;
+//   const parent = new Array(n).fill(0);
+
+//   parent.forEach((a, i) => (parent[i] = i));
+
+//   costs.sort((a, b) => a[2] - b[2]);
+//   costs.forEach((cost, i) => {
+//     if (!isUnion(parent, cost[0], cost[1])) {
+//       answer += cost[2];
+//       union(parent, cost[0], cost[1]);
+//     }
+//   });
+
+//   return answer;
+// }
+
+// const init = () => {
+//   console.log(
+//     solution(4, [
+//       [0, 1, 1],
+//       [0, 2, 2],
+//       [1, 2, 5],
+//       [1, 3, 1],
+//       [2, 3, 8],
+//     ])
+//   );
+// };
+
+// init();
