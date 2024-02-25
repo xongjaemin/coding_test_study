@@ -1,4 +1,4 @@
-//프로그래머스 등교길
+//프로그래머스 등굣길
 function solution(m, n, puddles) {
   var answer = 0;
 
