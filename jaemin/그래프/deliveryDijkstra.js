@@ -19,6 +19,7 @@ function solution(N, road, K) {
   const costs = Array.from(Array(N), () => Array(N).fill(Infinity));
   const costFromStart = Array(N).fill(Infinity);
   const visited = Array(N).fill(false);
+  costFromStart[0] = 0;
   visited[0] = true;
 
   for (let i = 0; i < costs.length; i++) {
@@ -38,7 +39,7 @@ function solution(N, road, K) {
 
   while (true) {
     const currentIdx = findMinCostIndex(costFromStart, visited);
-    if (currentIdx === -1 || costFromStart[currentIdx] > K) break;
+    if (currentIdx === -1) break;
 
     visited[currentIdx] = true;
     for (let i = 0; i < N; i++) {
